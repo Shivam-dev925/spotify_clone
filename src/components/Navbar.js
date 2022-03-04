@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Nav } from "../styles/StyledComponent";
 import { Button } from "../styles/StyledComponent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +7,8 @@ import { UseSpotifyAuth } from "../contexts/SpotifyDataLayer";
 import { SpotifyTrackContext } from "../contexts/SpotifyTracksContext";
 
 export function Navbar() {
-  const { user } = UseSpotifyAuth();
+  const [showDropDown, setShowDropdown] = useState(false);
+  const { setAccessToken, setUser, user } = UseSpotifyAuth();
   const {
     setTracks,
 
@@ -31,6 +32,10 @@ export function Navbar() {
     setImage("");
 
     setTotalTracks(null);
+  };
+
+  const HandleDropdown = () => {
+    setShowDropdown(!showDropDown);
   };
 
   return (
@@ -84,6 +89,7 @@ export function Navbar() {
           </div>
           <h4>{user ? user.display_name : "avatarName"}</h4>
           <svg
+            onClick={HandleDropdown}
             role="img"
             height="16"
             width="16"
@@ -92,6 +98,23 @@ export function Navbar() {
           >
             <path d="M14 6l-6 6-6-6h12z"></path>
           </svg>
+          {showDropDown && (
+            <div className="profile_dropdown">
+              <ul>
+                <li>Account </li>
+
+                <li
+                  onClick={() => {
+                    setAccessToken("");
+                    setUser(null);
+                    setShowDropdown(false);
+                  }}
+                >
+                  Logout
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </Nav>

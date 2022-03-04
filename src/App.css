@@ -54,6 +54,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50px;
   height: 40px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -285,4 +286,30 @@
 }
 .Content_card:hover > .playCircle {
   display: flex;
+}
+
+.profile > .profile_dropdown {
+  background-color: rgb(37, 39, 38);
+  border: none;
+  border-radius: 0.4rem;
+  position: absolute;
+  bottom: -100px;
+  left: 3%;
+  width: 150px;
+  height: 90px;
+
+}
+.profile > .profile_dropdown > ul > li {
+  
+padding: 0.6rem 2rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-align: center;
+  transition: all 0.3s linear;
+  border: none;
+
+}
+.profile > .profile_dropdown > ul > li:hover {
+  background-color: rgb(167, 162, 162);
+  transition: all 0.3s linear;
+  border: none;
 }

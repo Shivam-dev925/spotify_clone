@@ -126,6 +126,7 @@ const SpotifyDataLayer = ({ children }) => {
         setUser,
         userPlaylist,
         setUserPlaylist,
+        setAccessToken,
         accessToken,
         active,
         setActive,

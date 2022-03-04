@@ -6,7 +6,7 @@ import { Img, PlayCircle } from "../styles/StyledComponent";
 
 function ContentCardArtists({ clickFunc }) {
   const { artists } = UseSpotifyAuth();
-  console.log({ artists });
+  /*console.log({ artists });*/
 
   return (
     <>
